@@ -80,17 +80,20 @@ static CGFloat widthCallback(void *ref) {
         if ([type isEqualToString:@"txt"]) {
             NSAttributedString *attString = [self parseAttributedContentFromNSDictionary:dict config:config];
             [attStringM appendAttributedString:attString];
-        }else if ([type isEqualToString:@"image"]) {
+        } else if ([type isEqualToString:@"image"]) {
             CoreTextImageData *imageData = [[CoreTextImageData alloc] init];
             imageData.name = dict[@"content"];
             [imageArray addObject:imageData];
             //创建空白占位符，并设置它的CTRunDelegate信息
             NSAttributedString *attString = [self parseImageDataFromNSDictionary:dict config:config];
             [attStringM appendAttributedString:attString];
-        }else if ([type isEqualToString:@"link"]) {
+        } else if ([type isEqualToString:@"link"]) {
+#pragma mark - attention 如果为链接文字 则设置链接文字的点击事件 获取链接文字的范围 将这些文字的属性信息保存到数组中
             //得到属性文字的起始点
             NSUInteger startPos = attStringM.length;
+            NSLog(@"startPos = %li",startPos);
             NSAttributedString *attString = [self parseAttributedLinkFromNSDictionary:dict config:config];
+            NSLog(@"attString = %@",attString);
             [attStringM appendAttributedString:attString];
             //获取链接文字属性的范围
             NSRange linkRange = NSMakeRange(startPos, attString.length);

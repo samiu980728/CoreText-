@@ -39,8 +39,9 @@
     //获取CTFrame中所有的CTline
     NSArray *lines = (NSArray *)CTFrameGetLines(self.ctFrame);
     NSInteger lineCount = lines.count;
-    NSLog(@"lines = %@",lines);
-    NSLog(@"lineCount = %li",lineCount);
+//    NSLog(@"lines = %@",lines);
+//    NSLog(@"lineCount = %li",lineCount);
+    
     //利用CGPoint数组获取所有CTline的起始坐标
     // FIXME: CTFrameGetLineOrigins获取CTLine的起始坐标，是一个个数为行数的一维数组，每个数组元素是一个CGPoint结构体，后面计算图片位置需要使用到
     CGPoint lineOrigins[lineCount];
