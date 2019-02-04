@@ -41,6 +41,10 @@
     displayView.data = [CTFrameParser parseTemplateFile:_netWorkPath config:config];
     
     [self.view addSubview:displayView];
+    
+    
+#pragma mark - Request 该到BQDisplayView.h文件中看了
+    
 }
 
 
